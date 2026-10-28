@@ -216,4 +216,5 @@ doctl apps create --spec .do/app.yaml
 CivicEye-Agent is licensed under the **Apache License 2.0**. See [LICENSE](LICENSE) for details.
 Proudly built for **Hacktoberfest 2026** by the CivicEye Open-Source Team.
 #   C i v i c - E y e  
+ #   C i v i c - E y e  
  
