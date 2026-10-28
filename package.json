@@ -1,0 +1,22 @@
+{
+  "name": "civiceye-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CivicEye-Agent — Dual-Language Multimodal Municipal Action Engine",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "test": "cd backend && npm test",
+    "build": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "gemma4",
+    "ollama",
+    "civic-tech",
+    "hacktoberfest2026",
+    "digitalocean"
+  ],
+  "author": "CivicEye Open-Source Team",
+  "license": "Apache-2.0"
+}

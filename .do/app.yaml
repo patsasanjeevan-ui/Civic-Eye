@@ -1,0 +1,45 @@
+name: civiceye-agent
+region: blr
+services:
+  - name: civiceye-backend
+    environment_slug: node-js
+    source_dir: backend
+    build_command: npm install
+    run_command: npm start
+    http_port: 5000
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    routes:
+      - path: /api
+    envs:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "5000"
+      - key: DATABASE_URL
+        scope: RUN_TIME
+        value: ${civiceye-db.DATABASE_URL}
+      - key: OLLAMA_HOST
+        scope: RUN_TIME
+        value: "http://localhost:11434"
+      - key: DEFAULT_GEMMA_MODEL
+        scope: RUN_TIME
+        value: "gemma4:e4b"
+
+static_sites:
+  - name: civiceye-frontend
+    source_dir: frontend
+    build_command: npm install && npm run build
+    output_dir: dist
+    routes:
+      - path: /
+    envs:
+      - key: VITE_API_URL
+        value: ${civiceye-backend.PUBLIC_URL}/api
+
+databases:
+  - name: civiceye-db
+    engine: PG
+    version: "16"
+    production: false
+    cluster_name: civiceye-postgis-cluster
